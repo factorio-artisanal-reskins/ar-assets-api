@@ -41,6 +41,9 @@ _common.symbol = V.one_of(_defines.symbol):describe_as("a symbol name")
 ---A validator that checks that a value is a letter.
 _common.letter = V.one_of(_defines.letter):describe_as("a letter")
 
+---A validator that checks that a value is a light name.
+_common.light = V.one_of(_defines.light):describe_as("a light name")
+
 ---A validator that checks that a value is a pipe material.
 _common.pipe_material = V.one_of(_defines.pipe_material):describe_as("a pipe material")
 

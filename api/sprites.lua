@@ -13,55 +13,19 @@ local _sprites = {}
 
 local V = require("__reskins-sprite-utils__.validation")
 local Common = require("__reskins-sprite-utils__.validation.common")
-
----@alias LightSpriteNames
---- | "atomic-artillery-shell" The name of the sprite for a radioactive atomic artillery shell.
---- | "aura-bullet"            The name of the sprite for a bullet with a glowing aura.
---- | "aura-projectile"        The name of the sprite for a projectile component with a glowing aura.
---- | "aura-rocket"            The name of the sprite for a rocket with a glowing aura.
---- | "aura-shotgun-shell"     The name of the sprite for a shotgun shell with a glowing aura.
---- | "aura-warhead"           The name of the sprite for a warhead with a glowing aura.
---- | "electric-bullet"        The name of the sprite for an electric bullet.
---- | "electric-projectile"    The name of the sprite for an electric projectile component.
---- | "electric-rocket"        The name of the sprite for an electric rocket.
---- | "electric-shotgun-shell" The name of the sprite for an electric shotgun shell.
---- | "electric-warhead"       The name of the sprite for an electric warhead.
---- | "fuel"                   The name of the sprite for a fuel item, such as nuclear fuel.
---- | "fuel-cell"              The name of the sprite for a reactor fuel cell.
---- | "laser-rifle-battery"    The name of the sprite for a laser rifle battery.
---- | "rocket"                 The name of the sprite for a rocket, such as a uranium-tipped rocket.
---- | "rounds-magazine"        The name of the sprite for a magazine, such as uranium rounds.
-
-local LightSpriteName = V.one_of({
-	"atomic-artillery-shell",
-	"aura-bullet",
-	"aura-projectile",
-	"aura-rocket",
-	"aura-shotgun-shell",
-	"aura-warhead",
-	"electric-bullet",
-	"electric-projectile",
-	"electric-rocket",
-	"electric-shotgun-shell",
-	"electric-warhead",
-	"fuel",
-	"fuel-cell",
-	"laser-rifle-battery",
-	"rocket",
-	"rounds-magazine",
-}):describe_as("a light sprite name")
+local AssetsCommon = require("api.validation")
 
 local check_get_sprite_light_layer = V.signature("get_sprite_light_layer", {
-	{ "light_name", LightSpriteName },
+	{ "light_name", AssetsCommon.light },
 	{ "tint", Common.color:optional() },
 })
 
 ---
----Creates a `Sprite` object configured for use as a light layer for the given `light_type`,
+---Creates a `Sprite` object configured for use as a light layer for the given `light_name`,
 ---with the given `tint`.
 ---
 ---#### Parameters
----@param light_name LightSpriteNames The name of the light sprite used to create the light layer.
+---@param light_name Light The name of the light artwork used to create the light layer.
 ---@param tint? Color The tint of the light layer. Default `nil`.
 ---
 ---#### Returns
@@ -72,8 +36,9 @@ local check_get_sprite_light_layer = V.signature("get_sprite_light_layer", {
 ----- Gets a light layer for an projectile with a blue tint.
 ---local sprite = sprites.get_sprite_light_layer("aura-projectile", util.color("#1280b2"))
 ---```
----@throws Thrown when `light_name` is not the name of a light sprite.
+---@throws Thrown when `light_name` is not a light name.
 ---@throws Thrown when `tint` is not a `Color`.
+---@see Reskins.SpriteUtils.IconComposition.add_light
 ---@nodiscard
 function _sprites.get_sprite_light_layer(light_name, tint)
 	check_get_sprite_light_layer(light_name, tint)

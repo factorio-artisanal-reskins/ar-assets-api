@@ -81,6 +81,44 @@ _defines.letter = {
 	S = "S",
 }
 
+---The names of the light artwork under `graphics/icons/lights`. The artwork is drawn as light
+---over an item in the world.
+---@enum Light
+_defines.light = {
+	---A radioactive atomic artillery shell.
+	atomic_artillery_shell = "atomic-artillery-shell",
+	---A bullet with a glowing aura.
+	aura_bullet = "aura-bullet",
+	---A projectile component with a glowing aura.
+	aura_projectile = "aura-projectile",
+	---A rocket with a glowing aura.
+	aura_rocket = "aura-rocket",
+	---A shotgun shell with a glowing aura.
+	aura_shotgun_shell = "aura-shotgun-shell",
+	---A warhead with a glowing aura.
+	aura_warhead = "aura-warhead",
+	---An electric bullet.
+	electric_bullet = "electric-bullet",
+	---An electric projectile component.
+	electric_projectile = "electric-projectile",
+	---An electric rocket.
+	electric_rocket = "electric-rocket",
+	---An electric shotgun shell.
+	electric_shotgun_shell = "electric-shotgun-shell",
+	---An electric warhead.
+	electric_warhead = "electric-warhead",
+	---A fuel item, such as nuclear fuel.
+	fuel = "fuel",
+	---A reactor fuel cell.
+	fuel_cell = "fuel-cell",
+	---A laser rifle battery.
+	laser_rifle_battery = "laser-rifle-battery",
+	---A rocket, such as a uranium-tipped rocket.
+	rocket = "rocket",
+	---A magazine, such as uranium rounds.
+	rounds_magazine = "rounds-magazine",
+}
+
 ---@alias PipeMaterialName
 ---| "aluminum"
 ---| "brass"

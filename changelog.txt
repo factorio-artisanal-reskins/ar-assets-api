@@ -26,6 +26,7 @@ Date: ????
       - `IconCatalog:create` creates a catalog with a folder, icon defaults type, and icon size; `:flat`, `:layers`, and `:tinted` create a builder for an icon.
       - `IconBuilder` methods `base`, `mask`, `highlights`, `layer`, `tinted_layer`, `tinted_part`, and `keyed` add layers and parameters; `build` returns a function that draws the icon for a table of parameters.
       - `IconCatalog.dispatch` creates a function that selects an icon by one parameter.
+    - Added `defines.light`, the names of the light artwork.
   Changes:
     - Icon and sprite methods now validate their arguments through the Artisanal Reskins: Sprite Utils `validation` module; a failure names the function, the parameter, and the path within it, and reports every bad argument at once.
     - `icons.get_symbol` and `icons.get_letter` now throw when `tint` is not a `Color`, rather than building an icon around an invalid tint.
