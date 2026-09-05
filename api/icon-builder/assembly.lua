@@ -237,7 +237,7 @@ end
 ---@nodiscard
 function _assembly.with_layers(builder, layers, class)
 	local state = _assembly.copy_state(builder.state)
-	for _, layer in ipairs(layers) do
+	for _, layer in pairs(layers) do
 		state.layers[#state.layers + 1] = layer
 	end
 
@@ -260,7 +260,7 @@ function _assembly.with_key(builder, name, validator, roles, class)
 	local role_set
 	if roles then
 		role_set = {}
-		for _, role in ipairs(roles) do
+		for _, role in pairs(roles) do
 			role_set[role] = true
 		end
 	end
@@ -323,7 +323,7 @@ end
 ---@nodiscard
 local function resolve_file_name(state, layer, params)
 	local stem = state.stem or state.name
-	for _, key in ipairs(state.keys) do
+	for _, key in pairs(state.keys) do
 		if not key.roles or (layer.role and key.roles[layer.role]) then
 			stem = stem .. "-" .. tostring(params[key.name])
 		end
@@ -366,7 +366,7 @@ function _assembly.assemble(state, params)
 	---@type IconData[]
 	local icon_data = {}
 
-	for index, layer in ipairs(state.layers) do
+	for index, layer in pairs(state.layers) do
 		if is_drawn(layer, index, params) then
 			local tint = layer.tint
 			if layer.tint_param and params[layer.tint_param] ~= nil then
@@ -405,9 +405,9 @@ local function rules_rule(rules, fields)
 			end
 
 			local errors = {}
-			for _, rule in ipairs(rules) do
+			for _, rule in pairs(rules) do
 				local args = {}
-				for order, name in ipairs(rule.fields) do
+				for order, name in pairs(rule.fields) do
 					args[order] = value[name]
 				end
 
@@ -470,22 +470,22 @@ function _assembly.make_creator(state, creator_name, rules, optional, finish)
 		fields[param_name] = validator
 	end
 
-	for _, key in ipairs(state.keys) do
+	for _, key in pairs(state.keys) do
 		declare(key.name, key.validator)
 	end
 
 	-- Several layers may share one tint parameter; a key may not share its name with one.
 	---@type table<string, true>
 	local tint_params = {}
-	for _, layer in ipairs(state.layers) do
+	for _, layer in pairs(state.layers) do
 		if layer.tint_param and not tint_params[layer.tint_param] then
 			tint_params[layer.tint_param] = true
 			declare(layer.tint_param, Common.color:optional())
 		end
 	end
 
-	for index, rule in ipairs(rules or {}) do
-		for _, field in ipairs(rule.fields) do
+	for index, rule in pairs(rules or {}) do
+		for _, field in pairs(rule.fields) do
 			if not fields[field] then
 				error(
 					string.format(
