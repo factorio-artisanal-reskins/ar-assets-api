@@ -9,6 +9,7 @@ local _sprite_utils = {
 }
 local V = require("__reskins-sprite-utils__.validation")
 local Common = require("__reskins-sprite-utils__.validation.common")
+local IconComposition = require("__reskins-sprite-utils__.icon-composition")
 
 ---Assembles icons from the state of an icon builder, and validates the arguments of its methods.
 ---
@@ -428,6 +429,16 @@ local function rules_rule(rules, fields)
 	}
 end
 
+---Creates a composition holding the given icon in the canvas group, with the icon defaults type
+---of the given state.
+---@param icon_data SafeIconData[] The assembled icon.
+---@param state IconBuilderState The state the icon was assembled from.
+---@return IconComposition
+---@nodiscard
+function _assembly.as_composition(icon_data, state)
+	return IconComposition:from_icons(icon_data, nil, state.defaults_type)
+end
+
 ---Creates the function that draws the icon described by the given state.
 ---
 ---The parameters of the creator are the keys of the state, which are required, and the tint
@@ -436,9 +447,10 @@ end
 ---@param creator_name string? Defaults to the name of the icon.
 ---@param rules IconParamsRule[]?
 ---@param optional boolean Whether the creator may be called without parameters.
----@return fun(params?: table<string, any>): SafeIconData[]
+---@param finish? fun(icon_data: SafeIconData[], state: IconBuilderState): any Converts the assembled icon to the output of the creator. Defaults to returning the icon.
+---@return fun(params?: table<string, any>): any
 ---@nodiscard
-function _assembly.make_creator(state, creator_name, rules, optional)
+function _assembly.make_creator(state, creator_name, rules, optional, finish)
 	local name = creator_name or state.name
 
 	if not state.layers[1] then
@@ -515,7 +527,12 @@ function _assembly.make_creator(state, creator_name, rules, optional)
 	return function(params)
 		check(params)
 
-		return _assembly.assemble(state, params or {})
+		local icon_data = _assembly.assemble(state, params or {})
+		if finish then
+			return finish(icon_data, state)
+		end
+
+		return icon_data
 	end
 end
 

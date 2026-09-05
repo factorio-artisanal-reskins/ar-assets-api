@@ -205,4 +205,35 @@ function IconBuilder:build(creator_name, rules)
 	return _assembly.make_creator(self.state, creator_name, rules, true)
 end
 
+---Builds the function that draws the described icon as a composition.
+---
+---The creator takes the parameters `build` describes, and returns an `IconComposition` from
+---Artisanal Reskins: Sprite Utils holding the icon in the canvas group, with the icon defaults
+---type of the catalog.
+---
+---#### Parameters
+---@param creator_name string? The name used in error messages when the creator is called with invalid parameters. Defaults to the name of the icon.
+---@param rules IconParamsRule[]? Rules that check several parameters together.
+---
+---#### Returns
+---@return fun(params?: P): IconComposition # A function that draws the icon for the given parameters as a composition.
+---
+---#### Examples
+---```lua
+---local get_icon_composition = icons:tinted("steam-turbine"):build_composition("get_icon_composition")
+---local icon_data = get_icon_composition({ tint = tint })
+---    :add_symbol(icons_api.get_symbol(_defines.symbol.aperture_open, tint))
+---    :build()
+---```
+---@throws Thrown when `creator_name` is not a non-empty string.
+---@throws Thrown when `rules` is not an array of `IconParamsRule` objects, or a rule names a parameter the icon does not take.
+---@throws Thrown when the icon draws no layers.
+---@see IconBuilder.build
+---@nodiscard
+function IconBuilder:build_composition(creator_name, rules)
+	_assembly.check_build(creator_name, rules)
+
+	return _assembly.make_creator(self.state, creator_name, rules, true, _assembly.as_composition)
+end
+
 return IconBuilder

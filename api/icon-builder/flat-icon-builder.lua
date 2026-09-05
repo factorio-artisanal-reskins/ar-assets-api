@@ -61,4 +61,19 @@ function FlatIconBuilder:build(creator_name)
 	return _assembly.make_creator(self.state, creator_name, nil, true)
 end
 
+---Builds the function that draws the described icon as a composition.
+---
+---The creator returns an `IconComposition` from Artisanal Reskins: Sprite Utils holding the icon
+---in the canvas group, with the icon defaults type of the catalog.
+---@param creator_name string? The name used in error messages when the creator is called with invalid parameters. Defaults to the name of the icon.
+---@return fun(params?: P): IconComposition # A function that draws the icon as a composition.
+---@throws Thrown when `creator_name` is not a non-empty string.
+---@see FlatIconBuilder.build
+---@nodiscard
+function FlatIconBuilder:build_composition(creator_name)
+	_assembly.check_build(creator_name, nil)
+
+	return _assembly.make_creator(self.state, creator_name, nil, true, _assembly.as_composition)
+end
+
 return FlatIconBuilder
