@@ -517,7 +517,7 @@ function _assembly.make_creator(state, creator_name, rules, optional, finish)
 		shape = shape:extend(rules_rule(rules, fields))
 	end
 	if optional then
-		shape = shape:optional()
+		shape = shape:optional() --[[@as ShapeValidator<any>]]
 	end
 
 	local check = V.signature(name, {
