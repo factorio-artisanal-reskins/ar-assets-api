@@ -5,7 +5,7 @@
 
 local _defines = require("api.defines")
 
----Applies a `reactor_sprite_set`-shaped `set` to `prototype`.
+---Applies a `set` of type `reactor_sprite_set` to `prototype`.
 ---@param prototype ReactorPrototype
 ---@param set NuclearReactorSpriteSet
 local function apply_sprite_set_to_reactor(prototype, set)

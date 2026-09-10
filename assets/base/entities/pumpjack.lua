@@ -23,7 +23,7 @@ local function get_horsehead_layers(params)
 	local folder = "__reskins-assets-base__/graphics/entity/pumpjack/"
 	local animation_speed = params.animation_speed or 0.5
 
-	-- Without a body color to paint, the horsehead falls back to the artwork that carries its own.
+	-- Without a body tint, the horsehead falls back to the artwork with its own colors.
 	local body = params.base_tint and "pumpjack-tintable-horsehead.png" or "pumpjack-horsehead.png"
 
 	---@type Animation[]
@@ -147,7 +147,7 @@ local function get_base_layers(params, is_flipped)
 	local folder = "__reskins-assets-base__/graphics/entity/pumpjack/"
 	local flipped = is_flipped and "-flipped" or ""
 
-	-- Without a body color to paint, the base falls back to the artwork that carries its own.
+	-- Without a body tint, the base falls back to the artwork with its own colors.
 	local body = params.base_tint and "pumpjack-tintable-base" or "pumpjack-base"
 
 	---@type Animation[]

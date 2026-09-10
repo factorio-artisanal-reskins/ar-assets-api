@@ -325,7 +325,7 @@ local FUEL = V.one_of({ "uranium", "thorium", "deuterium-blue", "deuterium-pink"
 local MATERIAL = V.one_of({ "base", "aluminum-invar", "gold-copper", "silver-aluminum", "silver-titanium" })
 local GLOW_COLOR = V.one_of({ "blue", "cyan" })
 
--- Every reactor shares one mask and one highlights layer, so only the base carries a key.
+-- Every reactor shares one mask and one highlights layer, so only the base has a key.
 local BASE_LAYER = { IconCatalog.role.base }
 
 local base_icons = IconCatalog:create({ folder = "__reskins-assets-base__/graphics/icons" })

@@ -25,7 +25,7 @@ local M = {}
 ---@param pipe_material PipeMaterial
 ---@return RotatedAnimationVariations animation
 local function get_corpse_animation(pipe_material)
-	-- For remnants only, the iron sprites come from base.
+	-- For remnants only, the iron artwork comes from base.
 	local is_iron = pipe_material == _defines.pipe_material.iron
 	local material_asset = is_iron and _defines.assets_source.base or _pipes.asset_from_material(pipe_material)
 
@@ -611,7 +611,7 @@ end
 ---@class PipeSpriteSetParams
 ---The material the pipes are built from. Defaults to iron.
 ---@field pipe_material PipeMaterial
----Whether to carry the frozen artwork. Defaults to `false`.
+---Whether to include the frozen artwork. Defaults to `false`.
 ---@field include_frozen_pictures boolean?
 
 ---Gets the sprite set for the vanilla and Bob's pipes.

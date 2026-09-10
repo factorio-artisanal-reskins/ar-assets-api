@@ -70,8 +70,8 @@ local check_create_sprite_variations = V.signature("create_sprite_variations", {
 ---in the given `directory` and with the given `sprite_name`.
 ---Provide a `tint` to include a light layer.
 ---
----The first image is named `{sprite_name}.png`, and each image after it is named
----`{sprite_name}-#.png`, where `#` counts the images following the first.
+---The first file is named `{sprite_name}.png`, and each file after it is named
+---`{sprite_name}-#.png`, where `#` counts the files following the first.
 ---
 ---For example, five variations are `shot.png`, `shot-1.png`, `shot-2.png`, `shot-3.png`, `shot-4.png`.
 ---

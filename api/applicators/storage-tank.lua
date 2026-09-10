@@ -5,7 +5,7 @@
 
 local _defines = require("api.defines")
 
----Applies a `storage_tank_sprite_set`-shaped `set` to `prototype`.
+---Applies a `set` of type `storage_tank_sprite_set` to `prototype`.
 ---@param prototype StorageTankPrototype
 ---@param set StorageTankSpriteSet
 local function apply_sprite_set_to_storage_tank(prototype, set)

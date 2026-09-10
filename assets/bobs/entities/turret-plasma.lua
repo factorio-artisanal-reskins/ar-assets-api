@@ -16,7 +16,7 @@ local M = {}
 
 ---Gets the sprite set for Bob's plasma turret.
 ---
----The set carries its nominal dimensions only; no artwork is drawn for this family yet.
+---The set defines its nominal dimensions only. No artwork is drawn for this turret yet.
 ---@param params TurretPlasmaSpriteSetParams The options the sprite set is drawn with.
 ---@return SpriteSetDefinition<TurretSpriteSet>
 ---

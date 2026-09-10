@@ -2,18 +2,18 @@
 Version: 0.2.0
 Date: ????
   Features:
-    - Added the applicator framework: `api.applicators` applies a sprite set to a prototype in one call, handling routing, shape conversion, and scaling on the caller's behalf.
-      - `applicators.apply_sprite_set(prototype, definition, params)` routes on `prototype.type` to the applicator that paints it; a `corpse` prototype instead takes the fields of `definition.set.corpse` directly.
+    - Added the applicator framework: `api.applicators` applies a sprite set to a prototype in one call, handling routing, sprite set type conversion, and scaling on the caller's behalf.
+      - `applicators.apply_sprite_set(prototype, definition, params)` routes on `prototype.type` to the applicator that applies it; a `corpse` prototype instead takes the fields of `definition.set.corpse` directly.
       - A sprite set is a plain `SpriteSetDefinition` table of a `set_type` and a `set`, so producing one needs no class, no metatable, and no mutation of a prototype.
-      - `defines.sprite_set_type` names the sprite set shapes, each recording the prototype types that consume it.
+      - `defines.sprite_set_type` names the sprite set types, each recording the prototype types that consume it.
       - Sprite data is scaled to the target prototype automatically, comparing the set's `nominal_width` and `nominal_height` against the prototype's inferred scale; `params.scale` and `params.scale_factor` override that directly, the latter relative to the nominal dimensions.
       - `definition` is never modified, so one sprite set may be applied to an entity and to its corpse.
       - Applicators ship for accumulators, beacons, boilers, crafting machines, electric poles, generators, inserters, mining drills, pipes, pipes to ground, pumps, radars, reactors, roboports, construction and logistic robots, solar panels, storage tanks, and transport belts.
     - Added the entity asset modules under `assets`: one flat module per entity family, each exporting `get_sprite_set` and `get_icon`.
       - Modules are filed by the asset mod that adds the entity, under `assets.base.entities`, `assets.angels.entities`, `assets.bobs.entities`, and `assets.hurricane.entities`.
       - A `nil` tint omits the tintable layers from a sprite set or icon rather than drawing them untinted.
-    - Added `api.converters`, the registry of conversions between sprite set shapes, so a sprite set need not already be in the shape the applicator painting it consumes.
-      - `converters.resolve(definition, to_sprite_set)` returns the set in the target shape, preferring a conversion carried on `definition.converters` over the registered ones.
+    - Added `api.converters`, the registry of conversions between sprite set types, so a sprite set need not already be of the type the applicator applying it consumes.
+      - `converters.resolve(definition, to_sprite_set)` returns the set of the target sprite set type, preferring a conversion defined on `definition.converters` over the registered ones.
       - Conversions compose: registering `A` to `B` and `B` to `C` is enough to get `A` to `C`, along the shortest chain of conversions connecting them.
       - Ships a conversion from `BoilerSpriteSet` to `CraftingMachineSpriteSet`.
     - Added `api.applicator-registry` and `api.converter-registry`, whose `new` mints an empty registry of its kind.

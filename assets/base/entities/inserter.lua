@@ -19,7 +19,7 @@ local bobs_path = "__reskins-assets-bobs__/graphics/entity/"
 
 ---Builds the arm (`hand_base_picture`) sprite layers.
 ---
----All inserter variants share the same base arm sprite. Filter variants append an
+---All inserter variants share the same base arm artwork. Filter variants append an
 ---additional tint-colored mask + highlights overlay from `inserter-filter/arm/`.
 ---Bulk-filter has no arm overlay (no arm subfolder in `inserter-bulk-filter/`).
 ---@param tint Color?
@@ -322,12 +322,12 @@ end
 
 ---Builds the corpse remnant animation.
 ---
----Remnant sprites are sourced per variant:
+---Remnant artwork is sourced per variant:
 ---  - `"inserter"` / `"inserter-long"` → `inserter/remnants/` in `reskins-assets-base`
 ---  - `"inserter-filter"` / `"inserter-filter-long"` → `inserter-filter/remnants/` in `reskins-assets-bobs`
 ---  - `"inserter-bulk"` → `inserter-bulk/remnants/` in `reskins-assets-base`
 ---  - `"inserter-bulk-filter"` → `inserter-bulk-filter/remnants/` in `reskins-assets-bobs`
----    (file prefix is `inserter-filter-bulk-`, not `inserter-bulk-filter-`)
+---    (the file prefix is `inserter-filter-bulk-`)
 ---@param tint Color?
 ---@param variant "inserter"|"inserter-long"|"inserter-filter"|"inserter-filter-long"|"inserter-bulk"|"inserter-bulk-filter"
 ---@return RotatedAnimationVariations

@@ -5,7 +5,7 @@
 
 local _defines = require("api.defines")
 
----Applies an `electric_pole_sprite_set`-shaped `set` to `prototype`.
+---Applies a `set` of type `electric_pole_sprite_set` to `prototype`.
 ---@param prototype ElectricPolePrototype
 ---@param set ElectricPoleSpriteSet
 local function apply_sprite_set_to_electric_pole(prototype, set)
@@ -25,7 +25,7 @@ return {
 	apply_to_explosion = apply_sprite_set_to_explosion,
 }
 
----The sprite data an `electric_pole_sprite_set`-tagged `SpriteSetDefinition` carries.
+---The sprite data of a `SpriteSetDefinition` of type `electric_pole_sprite_set`.
 ---@class (exact) ElectricPoleSpriteSet : EntityWithHealthSpriteSet
 ---The prototype's `pictures`.
 ---@field pictures RotatedSprite

@@ -16,8 +16,8 @@ local M = {}
 
 ---Gets the sprite set for Bob's distillery.
 ---
----The set carries its nominal dimensions only; its `graphics_set` is empty and no artwork is
----drawn for this family yet.
+---The set defines its nominal dimensions only. Its `graphics_set` is empty, and no artwork is
+---drawn for the distillery yet.
 ---@param params DistillerySpriteSetParams The options the sprite set is drawn with.
 ---@return SpriteSetDefinition<CraftingMachineSpriteSet>
 ---

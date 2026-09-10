@@ -5,7 +5,7 @@
 
 local _defines = require("api.defines")
 
----Applies a `mining_drill_sprite_set`-shaped `set` to `prototype`.
+---Applies a `set` of type `mining_drill_sprite_set` to `prototype`.
 ---@param prototype MiningDrillPrototype
 ---@param set MiningDrillSpriteSet
 local function apply_sprite_set_to_mining_drill(prototype, set)

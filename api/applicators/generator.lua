@@ -5,7 +5,7 @@
 
 local _defines = require("api.defines")
 
----Applies a `generator_sprite_set`-shaped `set` to `prototype`.
+---Applies a `set` of type `generator_sprite_set` to `prototype`.
 ---@param prototype GeneratorPrototype
 ---@param set GeneratorSpriteSet
 local function apply_sprite_set_to_generator(prototype, set)
@@ -28,7 +28,7 @@ return {
 
 ---The sprite data of a `SpriteSetDefinition` of type `generator_sprite_set`.
 ---
----Note: this shape is Factorio 2.0 specific and changes significantly with Factorio 2.1.
+---The structure is specific to Factorio 2.0 and changes with Factorio 2.1.
 ---@class (exact) GeneratorSpriteSet : EntityWithHealthSpriteSet
 ---The prototype's `horizontal_animation`.
 ---@field horizontal_animation Animation

@@ -5,7 +5,7 @@
 
 local _defines = require("api.defines")
 
----Applies a `boiler_picture_set`-shaped `value` to `prototype`.
+---Applies a `value` of type `boiler_picture_set` to `prototype`.
 ---@param prototype BoilerPrototype
 ---@param sprite_set BoilerSpriteSet
 local function apply_sprite_set_to_boiler(prototype, sprite_set)

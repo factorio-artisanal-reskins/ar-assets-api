@@ -229,7 +229,7 @@ end
 ---@nodiscard
 function M.get_sprite_set(params)
 	-- FIXME: `spawn_and_station_height = -0.1` matches these sprites, but it is a prototype
-	-- field rather than sprite data and has no home on this shape.
+	-- field, and this sprite set has no field for it.
 	---@type SpriteSetDefinition<RoboportSpriteSet>
 	local definition = {
 		set_type = _defines.sprite_set_type.roboport_sprite_set,

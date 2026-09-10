@@ -205,8 +205,8 @@ end
 ---Draws the slot to the upper right.
 ---@field slot_2 BeaconModuleSlotCreator
 
----The creators for each art style a beacon's module slots can be drawn in. An art style is named by
----the caller, so a beacon can carry as many as it has artwork for.
+---The creators for each art style a beacon's module slots can be drawn in, keyed by the name of the
+---art style.
 M.module_slots = {}
 
 ---Gets the creators drawing the base game's own module slots.
@@ -771,7 +771,7 @@ end
 ---@class BeaconSpriteSetParams
 ---The color to tint the artwork. When `nil`, the tintable layers are omitted from the set.
 ---@field tint Color?
----The number of module slots to draw. Buckets to the 2, 4, or 6 slot artwork; defaults to 2.
+---The number of module slots to draw. Rounded up to 2, 4, or 6. Defaults to `2`.
 ---@field slot_count integer?
 ---Additional art styles to draw the module slots in. The `"vanilla"` style is always drawn; naming one
 ---`"vanilla"` replaces it.

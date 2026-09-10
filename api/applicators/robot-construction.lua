@@ -5,7 +5,7 @@
 
 local _defines = require("api.defines")
 
----Applies a `construction_robot_sprite_set`-shaped `set` to `prototype`.
+---Applies a `set` of type `construction_robot_sprite_set` to `prototype`.
 ---@param prototype ConstructionRobotPrototype
 ---@param set ConstructionRobotSpriteSet
 local function apply_sprite_set_to_construction_robot(prototype, set)

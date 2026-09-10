@@ -7,7 +7,7 @@ local V = require("__reskins-sprite-utils__.validation")
 local Common = require("__reskins-sprite-utils__.validation.common")
 local AssetsCommon = require("api.validation")
 
----The scale the graphics in this asset collection are authored at. An explicit `scale` is relative
+---The scale the artwork in this asset collection is designed for. An explicit `scale` is relative
 ---to this value; a `scale` equal to the baseline is a factor of `1`.
 local BASELINE_SCALE = 0.5
 
@@ -46,8 +46,8 @@ local function get_bounding_box_dimensions(bounding_box)
 end
 
 ---@class PrototypeScalerParams
----@field nominal_width double? The width, in tiles, the graphics were authored at. Drives automatic scaling.
----@field nominal_height double? The height, in tiles, the graphics were authored at. Drives automatic scaling.
+---@field nominal_width double? The width, in tiles, the artwork was designed for. Drives automatic scaling.
+---@field nominal_height double? The height, in tiles, the artwork was designed for. Drives automatic scaling.
 ---@field scale double? The desired resulting scale, relative to the baseline of `0.5`. Overrides automatic scaling.
 ---@field scale_factor double? An explicit multiplier to apply. Overrides both `scale` and automatic scaling.
 
@@ -121,7 +121,7 @@ local check_for_prototype = V.signature("for_prototype", {
 ---@param params PrototypeScalerParams? The scaling configuration. Defaults to automatic resolution.
 ---@return PrototypeScaler
 ---@throws Thrown when `prototype` is not an entity prototype.
----@throws Thrown when `params` carries a `nominal_width`, `nominal_height`, `scale`, or `scale_factor` that is not a positive number.
+---@throws Thrown when `params` defines a `nominal_width`, `nominal_height`, `scale`, or `scale_factor` that is not a positive number.
 ---@nodiscard
 function PrototypeScaler.for_prototype(prototype, params)
 	check_for_prototype(prototype, params)

@@ -5,7 +5,7 @@
 
 local _defines = require("api.defines")
 
----Applies an `accumulator_sprite_set`-shaped `set` to `prototype`.
+---Applies a `set` of type `accumulator_sprite_set` to `prototype`.
 ---@param prototype AccumulatorPrototype
 ---@param set AccumulatorSpriteSet
 local function apply_sprite_set_to_accumulator(prototype, set)
@@ -25,7 +25,7 @@ return {
 	apply_to_explosion = apply_sprite_set_to_explosion,
 }
 
----The sprite data an `accumulator_sprite_set`-tagged `SpriteSetDefinition` carries.
+---The sprite data of a `SpriteSetDefinition` of type `accumulator_sprite_set`.
 ---@class (exact) AccumulatorSpriteSet : EntityWithHealthSpriteSet
 ---The prototype's `chargable_graphics`.
 ---@field chargable_graphics ChargableGraphics

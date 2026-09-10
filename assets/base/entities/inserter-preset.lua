@@ -176,7 +176,7 @@ end
 
 ---Builds the corpse remnant animation.
 ---
----Each preset has its own single-sheet remnant sprite located at
+---Each preset has its own remnant artwork, a single sheet, located at
 ---`inserters/<preset>/remnants/<preset>-remnants.png` in `reskins-assets-bobs`.
 ---@param preset InserterPreset
 ---@return RotatedAnimationVariations

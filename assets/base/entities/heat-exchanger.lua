@@ -368,7 +368,7 @@ local icons = IconCatalog:create({ folder = "__reskins-assets-bobs__/graphics/ic
 
 local heat_pipe_material = V.one_of({ "base", "aluminum-invar", "silver-aluminum", "silver-titanium", "gold-copper" })
 
----Gets the icon for a heat exchanger carrying the `pipe_material` and in the tints given by `params`.
+---Gets the icon for a heat exchanger with the given `pipe_material` and in the tints given by `params`.
 ---
 ---Every exchanger shares one mask and one highlights layer, only the base layer differs by material.
 M.get_icon =

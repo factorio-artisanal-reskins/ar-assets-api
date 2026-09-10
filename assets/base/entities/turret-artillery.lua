@@ -12,8 +12,8 @@ local M = {}
 
 ---The sprite data of a `SpriteSetDefinition` of type `artillery_turret_sprite_set`.
 ---
----Provisional: no applicator consumes this shape yet. When one is written, this
----declaration moves to it, the way `BoilerSpriteSet` lives in `api/applicators/boiler.lua`.
+---Provisional: no applicator consumes this sprite set type yet. When one is written, this
+---declaration moves to it.
 ---@class (exact) TurretArtillerySpriteSet : EntityWithHealthSpriteSet
 
 ---@class TurretArtillerySpriteSetParams
@@ -22,7 +22,7 @@ local M = {}
 
 ---Gets the sprite set for the vanilla artillery turret.
 ---
----The set carries its nominal dimensions only; no artwork is drawn for this family yet.
+---The set defines its nominal dimensions only. No artwork is drawn for this turret yet.
 ---@param params TurretArtillerySpriteSetParams The options the sprite set is drawn with.
 ---@return SpriteSetDefinition<TurretArtillerySpriteSet>
 ---

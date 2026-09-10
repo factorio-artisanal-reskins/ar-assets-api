@@ -6,7 +6,7 @@
 local _defines = require("api.defines")
 local meld = require("__core__.lualib.meld")
 
----Applies a `pipe_to_ground_sprite_set`-shaped `set` to `prototype`.
+---Applies a `set` of type `pipe_to_ground_sprite_set` to `prototype`.
 ---@param prototype PipeToGroundPrototype
 ---@param set PipeToGroundSpriteSet
 local function apply_sprite_set_to_pipe_to_ground(prototype, set)

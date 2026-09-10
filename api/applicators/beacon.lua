@@ -53,7 +53,7 @@ local function retain_unhandled_art_styles(prototype, produced)
 	return retained
 end
 
----Applies a `beacon_sprite_set`-shaped `set` to `prototype`.
+---Applies a `set` of type `beacon_sprite_set` to `prototype`.
 ---@param prototype BeaconPrototype
 ---@param set BeaconSpriteSet
 local function apply_sprite_set_to_beacon(prototype, set)

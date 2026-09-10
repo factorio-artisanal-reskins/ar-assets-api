@@ -18,7 +18,7 @@
 ---Overrides both `scale` and automatic scaling.
 ---@field scale_factor double?
 
----The fields every sprite set shares, regardless of the prototype kind it paints.
+---The fields every sprite set shares, regardless of the prototype kind it is applied to.
 ---@class (exact) SpriteSetBase
 ---The sprite's design width, in tiles. Used for scaling.
 ---@field nominal_width double
@@ -32,9 +32,9 @@
 ---@field integration_patch Sprite4Way?
 ---The prototype's `integration_patch_render_layer`.
 ---@field integration_patch_render_layer RenderLayer?
----The death explosion art of the entity, applied by `SpriteSetApplicator.apply_to_explosion`.
+---The death explosion artwork of the entity, applied by `SpriteSetApplicator.apply_to_explosion`.
 ---@field dying_explosion any
----The remnant art of the entity. Applied when the sprite set is applied to a `CorpsePrototype`;
+---The remnant artwork of the entity. Applied when the sprite set is applied to a `CorpsePrototype`;
 ---not applied to the entity itself.
 ---@field corpse CorpseSpriteSet?
 ---The prototype's `water_reflection`.

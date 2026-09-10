@@ -53,8 +53,8 @@ end
 
 ---Gets an `Animation` object configured to draw a vertical pipe shadow at the given `shift`, for a single tile.
 ---
----Conventional use is by non-pipe entities that have pipe connections, and need to dynamically draw a shadow at the
----connection point for a given rotation state, rather than bake the shadow into the entity's sprite.
+---Used by non-pipe entities with pipe connections to draw a shadow at the connection point for a given
+---rotation state. The shadow is not part of the entity artwork.
 ---@param shift Vector The shift to apply to the shadow. Typically whole-tile or half-tile increments.
 ---@return Animation # A vertical pipe shadow for a single tile.
 ---
@@ -90,8 +90,8 @@ end
 
 ---Gets an `Animation` object configured to draw a horizontal pipe shadow at the given `shift`, for a single tile.
 ---
----Conventional use is by non-pipe entities that have pipe connections, and need to dynamically draw a shadow at the
----connection point for a given rotation state, rather than bake the shadow into the entity's sprite.
+---Used by non-pipe entities with pipe connections to draw a shadow at the connection point for a given
+---rotation state. The shadow is not part of the entity artwork.
 ---@param shift Vector The shift to apply to the shadow. Typically whole-tile or half-tile increments.
 ---@return Animation # A horizontal pipe shadow for a single tile.
 ---

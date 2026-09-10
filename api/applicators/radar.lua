@@ -5,7 +5,7 @@
 
 local _defines = require("api.defines")
 
----Applies a `radar_sprite_set`-shaped `set` to `prototype`.
+---Applies a `set` of type `radar_sprite_set` to `prototype`.
 ---@param prototype RadarPrototype
 ---@param set RadarSpriteSet
 local function apply_sprite_set_to_radar(prototype, set)

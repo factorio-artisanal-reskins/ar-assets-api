@@ -5,7 +5,7 @@
 
 local _defines = require("api.defines")
 
----Applies a `solar_panel_sprite_set`-shaped `set` to `prototype`.
+---Applies a `set` of type `solar_panel_sprite_set` to `prototype`.
 ---@param prototype SolarPanelPrototype
 ---@param set SolarPanelSpriteSet
 local function apply_sprite_set_to_solar_panel(prototype, set)

@@ -5,7 +5,7 @@
 
 local _defines = require("api.defines")
 
----Applies a `transport_belt_sprite_set`-shaped `set` to `prototype`.
+---Applies a `set` of type `transport_belt_sprite_set` to `prototype`.
 ---
 ---`set.belt_animation_set` is not applied by this applicator. Applies `structure` and
 ---`structure_patch` for a splitter, and `structure` for an underground belt.

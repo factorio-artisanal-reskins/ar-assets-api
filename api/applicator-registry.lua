@@ -92,7 +92,7 @@ function _factory.new()
 	---local entity = data.raw["assembling-machine"]["assembling-machine-1"]
 	---Applicators.apply_sprite_set(entity, sprite_set)
 	---
-	----- The same sprite set paints the entity's remnants, applied to the corpse itself.
+	----- The same sprite set may be directly applied to the corpse.
 	---local corpse = data.raw["corpse"]["assembling-machine-1-remnants"]
 	---Applicators.apply_sprite_set(corpse, sprite_set)
 	---```
@@ -110,7 +110,7 @@ function _factory.new()
 
 	---Registers the given `applicator` for the `SpriteSetType` it declares.
 	---@param applicator AnySpriteSetApplicator The applicator to register.
-	---@throws Thrown when `applicator` does not carry a `SpriteSetType` and an `apply_to`.
+	---@throws Thrown when `applicator` does not define a `SpriteSetType` and an `apply_to`.
 	function registry.register(applicator)
 		check_register(applicator)
 
@@ -241,11 +241,11 @@ function _factory.new()
 	---@param params ApplySpriteSetParams? Scaling options.
 	---@throws Thrown when `prototype` is not a prototype.
 	---@throws Thrown when `definition` is not a `SpriteSetDefinition`.
-	---@throws Thrown when `definition.set.corpse` carries a field no `CorpsePrototype` has.
-	---@throws Thrown when `params` carries an unrecognized field, or a `scale` or `scale_factor` that is not a positive number.
+	---@throws Thrown when `definition.set.corpse` defines a field no `CorpsePrototype` has.
+	---@throws Thrown when `params` defines an unrecognized field, or a `scale` or `scale_factor` that is not a positive number.
 	---@throws Thrown when `prototype.type` has no known `SpriteSetType`.
 	---@throws Thrown when `prototype.type`'s `SpriteSetType` has no applicator registered here.
-	---@throws Thrown when `definition.set_type` doesn't match the target shape and neither `definition.converters` nor a registered conversion connects them.
+	---@throws Thrown when `definition.set_type` does not match the sprite set type of the applicator and neither `definition.converters` nor a registered conversion connects them.
 	function registry.apply_sprite_set(prototype, definition, params)
 		check_apply_sprite_set(prototype, definition, params)
 

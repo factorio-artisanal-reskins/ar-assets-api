@@ -96,7 +96,7 @@ _common.sprite_set_type = V.one_of(_defines.sprite_set_type):describe_as("a Spri
 ---@type Validator<AnySpriteSetTransformer>
 _common.sprite_set_transformer = V.func():describe_as("a sprite set transformer")
 
----A validator that checks that a value is a `CorpseSpriteSet`: remnant art that is rescaled with
+---A validator that checks that a value is a `CorpseSpriteSet`: remnant artwork that is rescaled with
 ---the sprite set and copied onto the corpse prototype field by field. Unknown fields are not
 ---permitted.
 ---@type ShapeValidator<CorpseSpriteSet>

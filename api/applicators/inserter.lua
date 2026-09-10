@@ -5,7 +5,7 @@
 
 local _defines = require("api.defines")
 
----Applies an `inserter_sprite_set`-shaped `set` to `prototype`.
+---Applies a `set` of type `inserter_sprite_set` to `prototype`.
 ---@param prototype InserterPrototype
 ---@param set InserterSpriteSet
 local function apply_sprite_set_to_inserter(prototype, set)
@@ -31,7 +31,7 @@ return {
 	apply_to_explosion = apply_sprite_set_to_explosion,
 }
 
----The sprite data an `inserter_sprite_set`-tagged `SpriteSetDefinition` carries.
+---The sprite data of a `SpriteSetDefinition` of type `inserter_sprite_set`.
 ---@class (exact) InserterSpriteSet : EntityWithHealthSpriteSet
 ---The prototype's `hand_base_picture`.
 ---@field hand_base_picture Sprite

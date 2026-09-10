@@ -6,7 +6,7 @@
 local _defines = require("api.defines")
 local _pipes = require("assets.base.entities.pipe-pictures")
 
--- Cardinal directions in CW order, used for the pipe-connector rotation math below.
+-- Cardinal directions in CW order, used for the pipe connection rotation math below.
 local all_dirs = {
 	defines.direction.north,
 	defines.direction.east,
@@ -22,7 +22,7 @@ local ccw = {
 	[defines.direction.west] = defines.direction.south,
 }
 
--- Number of CCW steps from the base (north-facing) design for each entity-facing direction.
+-- Number of CCW steps from the base (north-facing) orientation for each cardinal direction.
 local ccw_steps = {
 	[defines.direction.north] = 0,
 	[defines.direction.east] = 1,
@@ -238,10 +238,10 @@ local function resolve_flipped_directions(connectors)
 		connectors.flipped_front_directions or mirror_directions(connectors.front_directions)
 end
 
----Builds the two pipe corner working_visualisation entries for one orientation.
+---Builds the two pipe connector working_visualisation entries for one orientation.
 ---
----WV1 (`secondary_draw_order = -1`) covers corners that render behind the entity body.
----WV2 (normal draw order) covers corners that render in front, plus any shadow patches.
+---WV1 (`secondary_draw_order = -1`) covers connectors that render behind the entity body.
+---WV2 (normal draw order) covers connectors that render in front, plus any shadow patches.
 ---@param connectors WorkingVisualisationPipeConnectors
 ---@param directions defines.direction[]
 ---@param is_flipped boolean
@@ -308,7 +308,7 @@ local function build_pipe_connector_visualisations(connectors, directions, is_fl
 	return wv1, wv2
 end
 
----Builds and appends pipe corner working_visualisations to `prototype.graphics_set` (and
+---Builds and appends pipe connector working_visualisations to `prototype.graphics_set` (and
 ---`prototype.graphics_set_flipped`, if present), from `connectors` and the prototype's own fluid
 ---box connection directions.
 ---
@@ -334,7 +334,7 @@ local function apply_working_visualisation_pipe_connectors(prototype, connectors
 end
 
 ---Applies the given crafting machine sprite set `value` to the given `prototype`. `value` must be
----in the shape this applicator accepts.
+---of the sprite set type this applicator accepts.
 ---@param prototype CraftingMachinePrototype
 ---@param sprite_set CraftingMachineSpriteSet
 local function apply_sprite_set_to_crafting_machine(prototype, sprite_set)
@@ -371,17 +371,17 @@ return {
 	apply_to_explosion = apply_sprite_set_to_explosion,
 }
 
----A pipe corner's art for one connection state, sprite direction, and flip orientation.
+---The pipe connector artwork for one connection state, sprite direction, and flip orientation.
 ---@alias PipeConnectorPicture fun(state: "connected"|"capped", direction: defines.direction, is_flipped: boolean): Animation
 
 ---An optional shadow patch drawn when `direction` is connected. Returns `nil` for no shadow there.
 ---@alias PipeConnectorShadow fun(direction: defines.direction, is_flipped: boolean): Animation?
 
----Pipe corner art built when applied, from the fluid box connection directions of the prototype,
----for a crafting machine whose pipe art is defined as rotated working visualisations instead of
----fluid box pictures.
+---Pipe connector artwork built when applied, from the fluid box connection directions of the
+---prototype, for a crafting machine whose pipe artwork is defined as rotated working
+---visualisations. Fluid box pictures are not used.
 ---@class (exact) WorkingVisualisationPipeConnectors
----The connected/capped pipe corner art for a sprite direction and flip orientation.
+---The connected or capped pipe connector artwork for a sprite direction and flip orientation.
 ---@field get_picture PipeConnectorPicture
 ---The shadow patch for a connected direction and flip orientation, if this entity has one.
 ---@field get_shadow PipeConnectorShadow?
@@ -404,8 +404,8 @@ return {
 ---@field graphics_set_flipped CraftingMachineGraphicsSet?
 ---Fluid box pipe graphics, matched to the prototype's fluid boxes by direction.
 ---@field fluid_boxes FluidBoxGraphics[]?
----Pipe corner art built from the fluid box connection directions of the prototype, used instead of
----or alongside `fluid_boxes`.
+---Pipe connector artwork built from the fluid box connection directions of the prototype. May be
+---given with or without `fluid_boxes`.
 ---@field working_visualisation_pipe_connectors WorkingVisualisationPipeConnectors?
 ---Sets the prototype's `fluid_boxes_off_when_no_fluid_recipe` (`AssemblingMachinePrototype` only;
 ---ignored for furnaces).

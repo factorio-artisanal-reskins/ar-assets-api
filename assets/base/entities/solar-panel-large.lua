@@ -120,7 +120,7 @@ function M.get_sprite_set(params)
 			integration_patch = nil,
 			integration_patch_render_layer = nil,
 			dying_explosion = nil,
-			-- Bob's large solar panel ships no remnant art.
+			-- Bob's large solar panel has no remnant artwork.
 			corpse = nil,
 			water_reflection = nil,
 			nominal_width = 4,

@@ -17,9 +17,9 @@ local V = require("__reskins-sprite-utils__.validation")
 local Common = require("__reskins-sprite-utils__.validation.common")
 local AssetsCommon = require("api.validation")
 
----Indicates if the given `icon_datum` is using images from Artisanal Reskins.
+---Indicates if the given `icon_datum` is using artwork from Artisanal Reskins.
 ---@param icon_datum IconData An `IconData` object.
----@return boolean # `true` if the icon is using images from Artisanal Reskins.
+---@return boolean # `true` if the icon is using artwork from Artisanal Reskins.
 ---@nodiscard
 local function is_icon_using_reskins_images(icon_datum)
 	return icon_datum.icon:find("__reskins%-") ~= nil
@@ -29,13 +29,13 @@ local check_is_icons_using_reskins_images = V.signature("is_icons_using_reskins_
 	{ "icon_data", Common.icon_data },
 })
 
----Indicates if the given `icon_data` is using images from Artisanal Reskins.
+---Indicates if the given `icon_data` is using artwork from Artisanal Reskins.
 ---
 ---#### Parameters
 ---@param icon_data IconData[] An icon represented by an array of `IconData` objects.
 ---
 ---#### Returns
----@return boolean # `true` if any of the icons in `icon_data` are using images from Artisanal Reskins.
+---@return boolean # `true` if any of the icons in `icon_data` are using artwork from Artisanal Reskins.
 ---@throws Thrown when `icon_data` is not a non-empty array of `IconData` objects.
 ---@nodiscard
 function _icons.is_icons_using_reskins_images(icon_data)
@@ -63,7 +63,7 @@ local check_get_tinted_icon = V.signature("get_tinted_icon", {
 ---#### Parameters
 ---@param icon FileName The file name of the icon to tint.
 ---@param tint Color The color to tint the icon.
----@param icon_size SpriteSizeType? The size, in pixels, the icon is authored at. Defaults to the size `defaults_type` implies.
+---@param icon_size SpriteSizeType? The size, in pixels, of the icon on disk. Defaults to the size `defaults_type` implies.
 ---@param defaults_type IconDefaultsType? The type-specific icon defaults to fill in. Defaults to `"default"`.
 ---
 ---#### Returns

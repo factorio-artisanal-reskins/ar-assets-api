@@ -155,7 +155,7 @@ _defines.pipe_material = {
 	tungsten_angels = "angels-tungsten",
 }
 
----Identifies the shape of the `set` of a `SpriteSetDefinition`, and selects the applicator that
+---Identifies the type of the `set` of a `SpriteSetDefinition`, and selects the applicator that
 ---applies it.
 ---@enum SpriteSetType
 _defines.sprite_set_type = {
